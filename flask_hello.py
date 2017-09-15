@@ -5,6 +5,7 @@ from flask import send_from_directory
 import pymysql
 pymysql.install_as_MySQLdb()
 from flask.ext.bootstrap import Bootstrap
+from flask import jsonify
 
 
 
@@ -67,6 +68,7 @@ class Users(db.Model, UserMixin):
         else:
             return True
 
+
 @login_manger.user_loader
 def load_user(user_id):
     userobj = Users.query.filter_by(id=user_id).first()
@@ -76,6 +78,14 @@ def load_user(user_id):
 # def index():
 #     #return render_template('index.html')
 #     return app.send_static_file('index.html')
+
+@app.route('/show_data', methods=['GET'])
+def show_data():
+    result = {
+        'status': 'success',
+        'data': 'Hello, world!',
+    }
+    return jsonify(result)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -87,15 +97,15 @@ def login():
     cookie_username = request.cookies.get('username')
     userobj = Users.query.filter_by(username=username).first()
     if userobj is None:
-        return app.send_static_file('login.html')
+        return render_template('login.html')
 
     if request.form.get('password') == userobj.password:
         login_user(userobj)
         session['username'] = request.form['username']
-        #session['userobj'] = userobj
+        # session['userobj'] = userobj
         return redirect(url_for('index'))
 
-        return app.send_static_file('login.html')
+    return render_template('login.html')
 
 # @app.route('/unconfirmed/')
 # def unconfirmed():
@@ -111,10 +121,11 @@ def send_assets(path):
 def index():
     if 'username' in session:
         notification_recipient_list = NotificationRecipientList.query.filter_by(users_id=session['user_id'])
-        #notifications = UserNotifications.query.filter_by(users_id=session['user_id'])
-        return render_template('index.html', username=session['username'], notification_recipient_list=notification_recipient_list)
+        # notifications = UserNotifications.query.filter_by(users_id=session['user_id'])
+        return render_template('index.html', username=session['username'],
+                               notification_recipient_list=notification_recipient_list)
     else:
-        return app.send_static_file('login.html')
+        return render_template('login.html')
 
 
 @app.route('/user/<name>')
