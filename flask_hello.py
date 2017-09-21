@@ -6,8 +6,7 @@ import pymysql
 pymysql.install_as_MySQLdb()
 from flask.ext.bootstrap import Bootstrap
 from flask import jsonify
-
-
+from datetime import timedelta
 
 from flask_login import LoginManager, AnonymousUserMixin, UserMixin, current_user, login_user, login_required
 from flask_sqlalchemy import SQLAlchemy
@@ -120,6 +119,8 @@ def send_assets(path):
 @app.route('/')
 def index():
     if 'username' in session:
+        session.permanent = True
+        app.permanent_session_lifetime = timedelta(minutes=15)
         notification_recipient_list = NotificationRecipientList.query.filter_by(users_id=session['user_id'])
         # notifications = UserNotifications.query.filter_by(users_id=session['user_id'])
         return render_template('index.html', username=session['username'],
@@ -135,6 +136,7 @@ def user(name):
 if __name__ == '__main__':
     app.secret_key = 'super secret key'
     app.config['SESSION_TYPE'] = 'filesystem'
+
     login_manger.init_app(app)
     #app_session.init_app(app)
     app.debug = True
