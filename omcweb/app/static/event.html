@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>运行管理中心</title>
+    <!--bootstrap-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="bs-component">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">运行管理中心</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="homepage.html">首页<span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="event.html">事件<span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="#">重要飞行<span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="#">航班运行<span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="#">值班<span class="sr-only">(current)</span></a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false">用户<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">交班</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">修改密码</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <ul class ="nav nav-pills nav-stacked">
+                    <li role="presentation" class="active"><a href="#tab1" data-toggle="tab">不正常情况</a></li>
+                    <li role="presentation"><a href="#tab2" data-toggle="tab">设备运行</a></li>
+                    <li role="presentation"><a href="#tab3" data-toggle="tab">MDRS</a></li>
+                    <li role="presentation"><a href="#tab4" data-toggle="tab">移交事宜</a></li>
+                </ul>
+            </div>
+            <div class="col-md-10">
+                <div id="eventTab" class="tab-content">
+                    <div class="tab-pane fade in active" id="tab1">
+
+                    </div>
+                    <div class="tab-pane fade in active" id="tab2">
+
+                    </div>
+                    <div class="tab-pane fade in active" id="tab3">
+
+                    </div>
+                    <div class="tab-pane fade in active" id="tab4">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
