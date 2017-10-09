@@ -6,6 +6,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_pagedown import PageDown
 from config import config
+import pymysql
+pymysql.install_as_MySQLdb()
 
 bootstrap = Bootstrap()
 mail = Mail()
