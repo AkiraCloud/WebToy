@@ -40,7 +40,8 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:Letmein123@localhost:3306/mydb?charset=utf8mb4'
+    SQLALCHEMY_DATABASE_URI = "{}+{}://{}:{}@{}:{}/{}?charset=utf8".format(DIALECT, DRIVER, USERNAME, PASSWORD, HOST,
+                                                                           PORT, DATABASE)
 
 
 class TestingConfig(Config):
