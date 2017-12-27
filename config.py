@@ -1,6 +1,18 @@
 import os
-basedir = os.path.abspath(os.path.dirname(__file__))
 
+basedir = os.path.abspath(os.path.dirname(__file__))
+SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
+
+DIALECT = 'mysql'
+DRIVER = 'mysqldb'
+USERNAME = 'root'
+PASSWORD = 'Letmein123'
+HOST = '127.0.0.1'
+PORT = '3306'
+DATABASE = 'webtoy'
+
+SQLALCHEMY_DATABASE_URI = "{}+{}://{}:{}@{}:{}/{}?charset=utf8".format(DIALECT,DRIVER,USERNAME,PASSWORD,HOST,PORT,DATABASE)
+SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class Config:
     SECRET_KEY = 'hard to guess string'
@@ -107,3 +119,4 @@ config = {
 
     'default': DevelopmentConfig
 }
+
