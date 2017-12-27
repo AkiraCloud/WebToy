@@ -1,0 +1,21 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}
+    运行管理中心-注册新用户
+{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block body %}
+    <body id="content">
+        <div class="container">
+            <div class="row col-md-offset-4 col-md-4">
+            <h1 class="text-center" id="form-label" style=font-family:Helvetica>注册新用户</h1>
+            {{ wtf.quick_form(form) }}
+            </div>
+        </div>
+    </body>
+{% endblock %}
+{% block script %}
+    {{ super() }}
+{% endblock %}

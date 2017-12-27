@@ -1,0 +1,15 @@
+#content{
+
+    background-image: url("../bgimg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+#form-label{
+    color:white;
+
+}
+.control-label{
+
+    color: white;
+}
+

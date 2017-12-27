@@ -1,0 +1,10 @@
+.jumbotron {
+    background-color: #f4511e; /* Orange */
+    color: #ffffff;
+    text-align: center;
+    padding: 0px;
+}
+.jumbotron p{
+    font-size: 15px;
+}
+

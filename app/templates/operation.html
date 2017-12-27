@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='operation.css') }}"/>
+{% endblock %}
+{% block navbar %}
+    {{ super() }}
+    <div class="row">
+        <div class="col-md-2">
+            <nav class="navbar navbar-inverse" id="sidebar-wrapper" role="navigation">
+                <ul class="nav sidebar-nav">
+                    <li><a href="#">不正常事件</a></li>
+                    <li><a href="#">航班影响</a></li>
+                    <li><a href="#">返航备降</a></li>
+                    <li><a href="#">设备故障</a></li>
+                    <li><a href="#" >架次统计</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+{% endblock %}

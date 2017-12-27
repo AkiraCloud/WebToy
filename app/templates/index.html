@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    <link type="text/css" rel="stylesheet" href="static/css/index.css">
+{% endblock %}
+{% block info_content %}
+    {{ super() }}
+    <div class="col-md-9 ">
+        <div class="jumbotron">
+            <p>{{ moment(time).format('LLL') }}</p>
+        </div>
+        <div class="TransferInfo">
+            <h1><span class="label label-info">移交事宜</span></h1>
+            <button class="btn btn-danger" data-toggle="modal" data-target="#addTransinfoModal"><i
+                    class="fa fa-plus fa-lg"></i> New
+            </button>
+            <div class="modal fade" id="addTransinfoModal" tabindex="-1" role="dialog"
+                 aria-labelledby="addTransinfoModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="addTransinfoModal">新增移交事宜</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="startDate" class="col-sm-3 control-label">开始日期</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="startDate" name="user_id"
+                                               value="" placeholder="开始日期">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="endDate" class="col-sm-3 control-label">结束日期</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="user_name" value="" id="endDate"
+                                               placeholder="失效日期">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="infoContent" class="col-sm-3 control-label">移交内容</label>
+                                    <div class="col-sm-9">
+                                    <textarea class="form-control" name="remark" value="" id="infoContent">
+                                    </textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">提交</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    <script>
+        $('#addTransinfoModal').modal(o)
+    </script>
+{% endblock %}
