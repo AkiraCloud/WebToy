@@ -6,10 +6,24 @@
 {% block head %}
     {{ super() }}
     <link type="text/css" rel="stylesheet" href="/static/css/login.css"/>
+    <script src="/static/js/index.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
 {% endblock %}
 {% block body %}
     <body id="content">
         <div class="container">
+            {% for message in get_flashed_messages() %}
+                <div class="alert alert-warning">
+                    <script>
+                        setTimeout(function() {
+                            $(".alert").alert('close');
+                        }, 5000);
+                    </script>
+                    {{ message }}
+                </div>
+            {% endfor %}
+
             <div class="row col-md-offset-4 col-md-4">
             <h1 class="text-center" id="form-label" style=font-family:Helvetica>运行监控室</h1>
             {{ wtf.quick_form(form) }}
