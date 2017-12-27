@@ -13,23 +13,22 @@
 {% block body %}
     <body id="content">
         <div class="container">
-            {% for message in get_flashed_messages() %}
-                <div class="alert alert-warning">
-                    <script>
-                        setTimeout(function() {
-                            $(".alert").alert('close');
-                        }, 5000);
-                    </script>
-                    {{ message }}
-                </div>
-            {% endfor %}
-
             <div class="row col-md-offset-4 col-md-4">
             <h1 class="text-center" id="form-label" style=font-family:Helvetica>运行监控室</h1>
             {{ wtf.quick_form(form) }}
                 <p style="color: white">New user?<a href="{{ url_for('auth.register') }}">SIGN IN</a>.</p>
             </div>
         </div>
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning" style="width: 50%; margin-left: 25%">
+                <script>
+                    setTimeout(function() {
+                        $(".alert").alert('close');
+                    }, 5000);
+                </script>
+                {{ message }}
+            </div>
+        {% endfor %}
     </body>
 {% endblock %}
 {% block script %}
