@@ -1,3 +1,6 @@
+
+
+# -*- coding:utf-8 -*-
 from datetime import datetime
 import hashlib
 from app import db,login_manager
@@ -45,6 +48,11 @@ class TransferInfo(db.Model):
     end_date = db.Column(db.DateTime(), default=datetime.utcnow())
     transfer_info_content = db.Column(db.Text)
     invalid = db.Column(db.Boolean)
+
+
+    def get_effect(self):
+        pass
+        
 
     def to_json(self):
         json_transferinfo = {

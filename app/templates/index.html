@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 {% block head %}
     {{ super() }}
     {{ moment.include_moment() }}
@@ -26,43 +27,44 @@
                             <h4 class="modal-title" id="addTransinfoModal">新增移交事宜</h4>
                         </div>
                         <div class="modal-body">
-                            <form class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label for="dtp_input1" class="col-sm-3 control-label">开始日期</label>
-                                    <div class="input-group date form_datetime col-sm-9" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
-                                        <input class="form-control" size="16" type="text" value="" readonly>
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="startDate" class="col-sm-3 control-label">开始日期</label>
-                                    <div class="col-sm-9">
-                                        <input type="date" class="form-control" id="startDate" name="user_id"
-                                               value="" placeholder="开始日期">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="endDate" class="col-sm-3 control-label">结束日期</label>
-                                    <div class="col-sm-9">
-                                        <input type="date" class="form-control" name="user_name" value="" id="endDate"
-                                               placeholder="失效日期">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="infoContent" class="col-sm-3 control-label">移交内容</label>
-                                    <div class="col-sm-9">
-                                    <textarea class="form-control" name="remark" value="" id="infoContent">
-                                    </textarea>
-                                    </div>
-                                </div>
+                            <form class="form-horizontal" role="form" method="post">
+{#                                <div class="form-group">#}
+{#                                    <label for="dtp_input1" class="col-sm-3 control-label">开始日期</label>#}
+{#                                    <div class="input-group date form_datetime col-sm-9" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">#}
+{#                                        <input class="form-control" size="16" type="text" value="" readonly>#}
+{#                                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>#}
+{#                                        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <label for="startDate" class="col-sm-3 control-label">开始日期</label>#}
+{#                                    <div class="col-sm-9">#}
+{#                                        <input type="date" class="form-control" id="startDate" name="user_id"#}
+{#                                               value="" placeholder="开始日期">#}
+{#                                    </div>#}
+{#                                </div>#}
+{##}
+{#                                <div class="form-group">#}
+{#                                    <label for="endDate" class="col-sm-3 control-label">结束日期</label>#}
+{#                                    <div class="col-sm-9">#}
+{#                                        <input type="date" class="form-control" name="user_name" value="" id="endDate"#}
+{#                                               placeholder="失效日期">#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <label for="infoContent" class="col-sm-3 control-label">移交内容</label>#}
+{#                                    <div class="col-sm-9">#}
+{#                                    <textarea class="form-control" name="remark" value="" id="infoContent">#}
+{#                                    </textarea>#}
+{#                                    </div>#}
+{#                                </div>#}
+                                {{ wtf.quick_form(form) }}
                             </form>
                         </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">提交</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
-                        </div>
+{#                        <div class="modal-footer">#}
+{#                            <button type="submit" class="btn btn-primary">提交</button>#}
+{#                            <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>#}
+{#                        </div>#}
 
                     </div>
                 </div>

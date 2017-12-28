@@ -5,12 +5,23 @@ from app import db
 from datetime import datetime
 from app.models import User, TransferInfo
 from flask_login import login_user, login_required, current_user
+from .forms import TransInfoFrom
 
 
 @main.route('/index', methods=['GET', 'POST'])
 @login_required
 def index():
-    return render_template('index.html', time=datetime.utcnow())
+    form = TransInfoFrom()
+    if form.submit.data and form.validate_on_submit():
+        transferInfo = TransferInfo(input_id=current_user.id,
+                                    start_date=form.startDate.data,
+                                    end_date=form.endDate.data,
+                                    transfer_info_content=form.infoContent.data,
+                                    invalid='0')
+        db.session.add(transferInfo)
+        db.session.commit()
+
+    return render_template('index.html', time=datetime.utcnow(), form=form)
 
 
 @main.route('/user/operation', methods=['GET'])
