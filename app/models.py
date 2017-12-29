@@ -15,6 +15,7 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(64), unique=True, index=True)
     username = db.Column(db.String(64), unique=True, index=True)
+    last_login_datetime = db.Column(db.DateTime())
     password_hash = db.Column(db.String(128))
 
     @property
@@ -48,6 +49,7 @@ class TransferInfo(db.Model):
     end_date = db.Column(db.DateTime(), default=datetime.utcnow())
     transfer_info_content = db.Column(db.Text)
     invalid = db.Column(db.Boolean)
+    owner_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
 
     def get_effect(self):

@@ -31,22 +31,22 @@
                         <div class="modal-body">
                                 <div class="form-group">
                                     <label for="dtp_input1" class="col-sm-3 control-label">开始日期</label>
-                                    <div class="input-group date form_datetime col-sm-9" data-date-format="yyyy MM dd - hh:ii" data-link-field="dtp_input1">
+                                    <div class="input-group date form_datetime col-sm-9" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
                                         <input class="form-control" size="16" type="text" value="" readonly>
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                                     </div>
-                                    <input type="hidden" id="dtp_input1" value="" /><br/>
+                                    {{form.startDate(id='dtp_input1', type='hidden')}}<br/>
                                 </div>
                                 <div class="form-group">
                                     <label for="dtp_input2" class="col-sm-3 control-label">结束日期</label>
 {#                                    <div class="input-group date form_datetime col-sm-9" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy MM dd - HH:ii Z" data-link-field="dtp_input2">#}
-                                      <div class="input-group date form_datetime col-sm-9" data-date-format="yyyy MM dd - hh:ii" data-link-field="dtp_input2">
+                                      <div class="input-group date form_datetime col-sm-9" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input2">
                                         <input class="form-control" size="16" type="text" value="" readonly>
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                                     </div>
-                                    <input type="hidden" id="dtp_input2" value="" /><br/>
+                                    {{form.endDate(id='dtp_input2', type='hidden')}}<br/>
                                 </div>
 {#                                <div class="form-group">#}
 {#                                    <label for="startDate" class="col-sm-3 control-label">开始日期</label>#}

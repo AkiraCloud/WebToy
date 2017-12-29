@@ -16,6 +16,9 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user is not None and user.verify_password(form.password.data):
             login_user(user, form.remember_me.data)
+            user.last_login_datetime = datetime.utcnow()
+            db.session.add(user)
+            db.session.commit()
             return redirect(url_for('main.index'))
         else:
             flash('用户名或密码错误')

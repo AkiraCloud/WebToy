@@ -15,7 +15,7 @@ if os.path.exists('.env'):
 
 from app import create_app, db
 #from app.models import User, Follow, Role, Permission, Post, Comment
-from app.models import User
+from app.models import User,TransferInfo
 from flask_script import Manager, Shell
 from flask_migrate import Migrate, MigrateCommand
 
@@ -24,9 +24,9 @@ manager = Manager(app)
 migrate = Migrate(app, db)
 
 
-def make_shell_context():
-    return dict(app=app, db=db, User=User, Follow=Follow, Role=Role,
-                Permission=Permission, Post=Post, Comment=Comment)
+# def make_shell_context():
+#     return dict(app=app, db=db, User=User, Follow=Follow, Role=Role,
+#                 Permission=Permission, Post=Post, Comment=Comment)
 #manager.add_command("shell", Shell(make_context=make_shell_context))
 manager.add_command('db', MigrateCommand)
 
@@ -66,7 +66,7 @@ def profile(length=25, profile_dir=None):
 def deploy():
     """Run deployment tasks."""
     from flask_migrate import upgrade
-    from app.models import Role, User
+    from app.models import TransferInfo, User
 
     # migrate database to latest revision
     upgrade()

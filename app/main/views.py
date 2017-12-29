@@ -12,12 +12,15 @@ from .forms import TransInfoFrom
 @login_required
 def index():
     form = TransInfoFrom()
-    if form.submit.data and form.validate_on_submit():
+    # if form.submit.data and form.validate_on_submit():
+    if form.submit.data:
         transferInfo = TransferInfo(input_id=current_user.id,
                                     start_date=form.startDate.data,
                                     end_date=form.endDate.data,
                                     transfer_info_content=form.infoContent.data,
-                                    invalid='0')
+                                    invalid='0',
+                                    owner_id=current_user.id)
+
         db.session.add(transferInfo)
         db.session.commit()
 
