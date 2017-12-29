@@ -15,6 +15,9 @@
         <div class="TransferInfo">
             <div class="content-panel">
                 <h4><i class="fa fa-angle-right"></i>移交事宜</h4><hr>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#addTransinfoModal"><i
+                    class="fa fa-plus fa-lg"></i> New
+                </button>
                 <table class="table table-striped table-advance table-hover">
                     <thead>
                     <tr>
@@ -33,8 +36,8 @@
                             <tr>
                                 <td><a href="#">{{trasnfer_info.title}}</a></td>
                                 <td>{{trasnfer_info.user.username}}</td>
-                                <td>{{trasnfer_info.startDate}}</td>
-                                <td class="hidden-phone">{{trasnfer_info.endDate}}</td>
+                                <td>{{trasnfer_info.start_date}}</td>
+                                <td class="hidden-phone">{{trasnfer_info.end_date}}</td>
                                 <td><span class="label label-info label-mini">Due</span></td>
                                 <td>
                                     <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
@@ -46,9 +49,6 @@
                     </tbody>
                 </table>
             </div>
-            <button class="btn btn-danger" data-toggle="modal" data-target="#addTransinfoModal"><i
-                    class="fa fa-plus fa-lg"></i> New
-            </button>
             <div class="modal fade" id="addTransinfoModal" tabindex="-1" role="dialog"
                  aria-labelledby="addTransinfoModalLabel"
                  aria-hidden="true">
