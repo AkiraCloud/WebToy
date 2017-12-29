@@ -17,7 +17,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), unique=True, index=True)
     last_login_datetime = db.Column(db.DateTime())
     password_hash = db.Column(db.String(128))
-    transfer_info_relationship = db.relationship('TransferInfo', backref='user')
+    transfer_info_relationship = db.relationship('TransferInfo', backref='user', foreign_keys="[TransferInfo.input_id]")
 
     @property
     def password(self):
@@ -51,7 +51,7 @@ class TransferInfo(db.Model):
     title = db.Column(db.String(64))
     transfer_info_content = db.Column(db.Text)
     invalid = db.Column(db.Boolean)
-    # owner_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    owner_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
 
     def get_effect(self):
