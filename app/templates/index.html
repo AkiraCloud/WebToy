@@ -13,7 +13,39 @@
             <p>{{ moment(time).format('LLL') }}</p>
         </div>
         <div class="TransferInfo">
-            <h1><span class="label label-info">移交事宜</span></h1>
+            <div class="content-panel">
+                <h4><i class="fa fa-angle-right"></i>移交事宜</h4><hr>
+                <table class="table table-striped table-advance table-hover">
+                    <thead>
+                    <tr>
+                        <th><i class=" fa fa-edit"></i> Title</th>
+                        <th><i class=" fa fa-edit"></i> From</th>
+                        <th><i class="fa fa-bullhorn"></i> Start Date</th>
+                        <th><i class="fa fa-bookmark"></i> End Date</th>
+                        <th><i class=" fa fa-edit"></i> Status</th>
+{#                        <th class="hidden-phone"><i class="fa fa-question-circle"></i> Descrition</th>#}
+                        <th></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for trasnfer_info in trasnfer_info_list %}
+                            <tr>
+                                <td><a href="#">{{trasnfer_info.title}}</a></td>
+                                <td>{{trasnfer_info.user.username}}</td>
+                                <td>{{trasnfer_info.startDate}}</td>
+                                <td class="hidden-phone">{{trasnfer_info.endDate}}</td>
+                                <td><span class="label label-info label-mini">Due</span></td>
+                                <td>
+                                    <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                                    <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
             <button class="btn btn-danger" data-toggle="modal" data-target="#addTransinfoModal"><i
                     class="fa fa-plus fa-lg"></i> New
             </button>

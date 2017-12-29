@@ -13,19 +13,21 @@ from .forms import TransInfoFrom
 def index():
     form = TransInfoFrom()
     # if form.submit.data and form.validate_on_submit():
-    trasnfer_info_list = TransferInfo.query.filter_by(input_id=current_user.id)
+
     if form.submit.data:
         transferInfo = TransferInfo(input_id=current_user.id,
                                     start_date=form.startDate.data,
                                     end_date=form.endDate.data,
                                     transfer_info_content=form.infoContent.data,
-                                    invalid='0',
-                                    owner_id=current_user.id)
+                                    invalid=0
+                                    )
+                                    # , owner_id=current_user.id)
 
         db.session.add(transferInfo)
         db.session.commit()
 
-    return render_template('index.html', time=datetime.utcnow(), form=form)
+    trasnfer_info_list = TransferInfo.query.filter_by(input_id=current_user.id)
+    return render_template('index.html', time=datetime.utcnow(), form=form, trasnfer_info_list=trasnfer_info_list)
 
 
 @main.route('/user/operation', methods=['GET'])
