@@ -13,6 +13,7 @@ from .forms import TransInfoFrom
 def index():
     form = TransInfoFrom()
     # if form.submit.data and form.validate_on_submit():
+    trasnfer_info_list = TransferInfo.query.filter_by(input_id=current_user.id)
     if form.submit.data:
         transferInfo = TransferInfo(input_id=current_user.id,
                                     start_date=form.startDate.data,
