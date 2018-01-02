@@ -96,11 +96,19 @@
 {#                                    </div>#}
 {#                                </div>#}
                                 <div class="form-group">
+                                    <label for="title" class="col-sm-3 control-label">标题</label>
+                                    <div class="col-sm-9">
+{#                                    <textarea class="form-control" name="remark" value="" id="infoContent">#}
+{#                                    </textarea>#}
+                                        {{form.title(id='title', class="col-sm-9 form-control")}}
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="infoContent" class="col-sm-3 control-label">移交内容</label>
                                     <div class="col-sm-9">
 {#                                    <textarea class="form-control" name="remark" value="" id="infoContent">#}
 {#                                    </textarea>#}
-                                        {{form.infoContent(id='infoContent')}}
+                                        {{form.infoContent(rows="5", id='infoContent', class="col-sm-9 form-control")}}
                                     </div>
                                 </div>
 {#                                {{ wtf.quick_form(form) }}#}

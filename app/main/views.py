@@ -20,6 +20,7 @@ def index():
                                     end_date=form.endDate.data,
                                     transfer_info_content=form.infoContent.data,
                                     invalid=0,
+                                    title=form.title.data,
                                     owner_id=current_user.id)
 
         db.session.add(transferInfo)
